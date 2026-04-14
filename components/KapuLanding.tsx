@@ -594,10 +594,10 @@ export default function KapuLanding() {
           </p>
           <p className={styles.footerMeta}>
             <FaEnvelope />
-            <span>contact@kapuadventure.com</span>
+            <span>contact@studio.starryring.com</span>
             <span>|</span>
             <FaTwitter />
-            <span>@kapugame</span>
+            <span>@starryring</span>
           </p>
         </footer>
       </div>
