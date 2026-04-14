@@ -1,6 +1,7 @@
 "use client"
 
 import Image from 'next/image'
+import type { CSSProperties } from 'react'
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import {
   FaArrowRight,
@@ -76,6 +77,14 @@ const heroArtwork = {
   src: '/media/hero-character-placeholder.svg',
   alt: '主视觉角色图',
 }
+const pageBackground = {
+  imageSrc: '/media/page-background.svg',
+  overlay: 'linear-gradient(145deg, rgba(255, 249, 232, 0.72) 0%, rgba(255, 230, 201, 0.58) 100%)',
+  fallbackGradient: 'linear-gradient(145deg, #fff9e8 0%, #ffe6c9 100%)',
+  position: 'center top',
+  size: 'cover',
+  attachment: 'fixed',
+}
 
 export default function KapuLanding() {
   const [copied, setCopied] = useState(false)
@@ -89,6 +98,12 @@ export default function KapuLanding() {
   const pauseAutoRef = useRef(false)
   const dragStateRef = useRef({ startX: 0, startScrollLeft: 0, moved: false })
   const centeredIndexRef = useRef(middleLoopStart)
+  const pageBackgroundStyle: CSSProperties = {
+    backgroundImage: `${pageBackground.overlay}, url('${pageBackground.imageSrc}'), ${pageBackground.fallbackGradient}`,
+    backgroundPosition: `center center, ${pageBackground.position}, center center`,
+    backgroundSize: `cover, ${pageBackground.size}, cover`,
+    backgroundRepeat: 'no-repeat, no-repeat, no-repeat',
+  }
 
   function normalizeLogicalIndex(index: number) {
     return ((index % mediaItems.length) + mediaItems.length) % mediaItems.length
@@ -332,6 +347,7 @@ export default function KapuLanding() {
 
   return (
     <main className={styles.page}>
+      <div className={styles.pageBackground} style={pageBackgroundStyle} />
       <div
         className={styles.bubble}
         style={{ width: 250, height: 250, top: '10%', left: -80, background: 'rgba(255, 215, 150, 0.3)' }}

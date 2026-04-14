@@ -1,6 +1,15 @@
 .page {
   position: relative;
+  min-height: 100vh;
   overflow-x: hidden;
+}
+
+.pageBackground {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: #fff9e8;
+  pointer-events: none;
 }
 
 .bubble {
@@ -12,7 +21,7 @@
 
 .container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 30px;

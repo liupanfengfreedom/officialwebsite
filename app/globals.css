@@ -11,7 +11,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(145deg, #fff9e8 0%, #ffe6c9 100%);
+  background: #fff6df;
   color: #3b2a1f;
   font-family: "Quicksand", "PingFang SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
@@ -26,39 +26,4 @@ input,
 textarea,
 select {
   font: inherit;
-}
-
-.cartoon-btn-steam {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 2rem;
-  border: 4px solid #000;
-  border-radius: 9999px;
-  background: var(--steam-green);
-  color: #fff;
-  font-size: 1.125rem;
-  font-weight: 700;
-  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
-  transition:
-    transform 200ms ease,
-    box-shadow 200ms ease,
-    filter 200ms ease;
-}
-
-.cartoon-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 1);
-}
-
-.cartoon-btn:hover,
-.cartoon-btn-steam:hover {
-  transform: scale(1.05);
-  filter: brightness(1.03);
-}
-
-.cartoon-btn:active,
-.cartoon-btn-steam:active {
-  transform: translateY(4px) scale(0.95);
-  box-shadow: none;
 }
