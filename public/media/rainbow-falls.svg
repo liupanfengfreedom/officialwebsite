@@ -1,0 +1,21 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="48" fill="#F9E7D1"/>
+  <rect y="682" width="1600" height="218" fill="#C98F4B"/>
+  <path d="M84 672L486 250L740 672H84Z" fill="#ADCBEF"/>
+  <path d="M814 672L1148 188L1516 672H814Z" fill="#96BDE8"/>
+  <path d="M694 212L832 488H566L694 212Z" fill="#73D7FF"/>
+  <rect x="658" y="470" width="76" height="226" rx="28" fill="#D7A572"/>
+  <circle cx="698" cy="376" r="48" fill="#FFD27A"/>
+  <path d="M300 546C386 432 512 416 628 474" stroke="#F48C6C" stroke-width="22" stroke-linecap="round"/>
+  <path d="M920 518C1018 414 1148 404 1300 470" stroke="#F9A95E" stroke-width="22" stroke-linecap="round"/>
+  <path d="M184 356C286 248 430 216 560 232C690 248 830 320 922 420" stroke="#FF6B6B" stroke-width="18" stroke-linecap="round"/>
+  <path d="M184 388C288 284 434 254 566 274C698 294 840 364 938 458" stroke="#FFB347" stroke-width="18" stroke-linecap="round"/>
+  <path d="M188 422C294 322 444 292 580 314C716 336 856 398 952 490" stroke="#FFE066" stroke-width="18" stroke-linecap="round"/>
+  <path d="M198 456C308 360 454 332 586 354C718 376 854 438 946 528" stroke="#7DD87D" stroke-width="18" stroke-linecap="round"/>
+  <path d="M212 488C322 398 458 374 586 394C714 414 842 470 930 556" stroke="#70D6FF" stroke-width="18" stroke-linecap="round"/>
+  <path d="M226 518C334 434 470 412 590 428C710 444 828 492 914 574" stroke="#9C89FF" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1188 332C1266 332 1330 394 1342 474" stroke="#FFF3B0" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="1280" cy="444" r="26" fill="#FFD966"/>
+  <text x="96" y="812" fill="#8B5A2B" font-family="Quicksand, sans-serif" font-size="68" font-weight="700">彩虹瀑布</text>
+  <text x="98" y="868" fill="#A56D3B" font-family="Quicksand, sans-serif" font-size="34" font-weight="600">乘着梦幻滑道穿过瀑布，收集闪亮晶石</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="48" fill="#FBD7A3"/>
+  <circle cx="262" cy="210" r="98" fill="#FFE58F"/>
+  <ellipse cx="796" cy="816" rx="516" ry="124" fill="#C67D3D"/>
+  <ellipse cx="792" cy="754" rx="416" ry="92" fill="#F9A55D"/>
+  <path d="M506 664C570 554 670 500 794 500C918 500 1018 554 1082 664" fill="#FFB366"/>
+  <path d="M794 344C890 344 968 418 968 510C968 602 890 676 794 676C698 676 620 602 620 510C620 418 698 344 794 344Z" fill="#FFD966" stroke="#FFB347" stroke-width="16"/>
+  <circle cx="734" cy="486" r="26" fill="white"/>
+  <circle cx="858" cy="486" r="26" fill="white"/>
+  <circle cx="742" cy="492" r="12" fill="#2F2E2E"/>
+  <circle cx="866" cy="492" r="12" fill="#2F2E2E"/>
+  <path d="M730 584C772 626 822 626 864 584" stroke="#C96A2D" stroke-width="16" stroke-linecap="round"/>
+  <rect x="772" y="396" width="48" height="60" rx="20" fill="#FF8C42"/>
+  <circle cx="796" cy="434" r="16" fill="#FFB347"/>
+  <circle cx="1228" cy="230" r="22" fill="#FF9FB2"/>
+  <circle cx="1302" cy="282" r="18" fill="#FFE066"/>
+  <circle cx="1188" cy="330" r="14" fill="#FFF7D8"/>
+  <circle cx="380" cy="628" r="18" fill="#FFE066"/>
+  <circle cx="1242" cy="656" r="16" fill="#FFB347"/>
+  <circle cx="1298" cy="618" r="12" fill="#FF9FB2"/>
+  <circle cx="800" cy="450" r="96" fill="#000000" fill-opacity="0.18"/>
+  <path d="M760 402L874 474L760 546V402Z" fill="white"/>
+  <text x="96" y="126" fill="#A35E2B" font-family="Quicksand, sans-serif" font-size="56" font-weight="700">梦幻卡噗首支预告</text>
+  <text x="96" y="186" fill="#C57836" font-family="Quicksand, sans-serif" font-size="30" font-weight="600">点击放大后可直接播放完整版视频</text>
+  <text x="96" y="812" fill="#FFF5DF" font-family="Quicksand, sans-serif" font-size="68" font-weight="700">视频预览</text>
+  <text x="96" y="868" fill="#FFE9BF" font-family="Quicksand, sans-serif" font-size="34" font-weight="600">欢迎来到甜梦王国，和噗噗一起展开奇妙远征</text>
+</svg>

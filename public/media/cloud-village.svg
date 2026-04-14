@@ -1,0 +1,28 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="48" fill="#DDF4FF"/>
+  <circle cx="1320" cy="158" r="86" fill="#FFF3A5"/>
+  <ellipse cx="220" cy="226" rx="132" ry="58" fill="#FFFFFF"/>
+  <ellipse cx="322" cy="196" rx="94" ry="48" fill="#FFFFFF"/>
+  <ellipse cx="468" cy="246" rx="122" ry="54" fill="#FFFFFF"/>
+  <ellipse cx="1160" cy="236" rx="144" ry="58" fill="#FFFFFF"/>
+  <ellipse cx="1300" cy="210" rx="94" ry="48" fill="#FFFFFF"/>
+  <ellipse cx="1450" cy="250" rx="122" ry="54" fill="#FFFFFF"/>
+  <rect y="680" width="1600" height="220" fill="#89C2D9"/>
+  <ellipse cx="288" cy="676" rx="238" ry="88" fill="#BDE0FE"/>
+  <ellipse cx="786" cy="642" rx="322" ry="112" fill="#C8E7FF"/>
+  <ellipse cx="1294" cy="676" rx="244" ry="88" fill="#BDE0FE"/>
+  <rect x="418" y="410" width="190" height="160" rx="30" fill="#FFD9A6"/>
+  <polygon points="512,310 620,410 404,410" fill="#FF9F68"/>
+  <rect x="478" y="474" width="70" height="96" rx="18" fill="#F0B57C"/>
+  <rect x="702" y="360" width="238" height="190" rx="34" fill="#FFF0D6"/>
+  <polygon points="822,242 964,360 680,360" fill="#FFA36B"/>
+  <rect x="788" y="430" width="66" height="120" rx="18" fill="#D9A56D"/>
+  <rect x="1034" y="436" width="184" height="146" rx="28" fill="#D6E4FF"/>
+  <polygon points="1126,340 1234,436 1018,436" fill="#8CC8FF"/>
+  <path d="M250 700C354 640 478 620 626 632C774 644 920 694 1026 760" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="344" cy="512" r="14" fill="#FFB347"/>
+  <circle cx="1256" cy="486" r="18" fill="#FF9FB2"/>
+  <circle cx="948" cy="194" r="12" fill="#FFE066"/>
+  <text x="96" y="812" fill="#527A95" font-family="Quicksand, sans-serif" font-size="68" font-weight="700">云朵镇</text>
+  <text x="98" y="868" fill="#6D95AF" font-family="Quicksand, sans-serif" font-size="34" font-weight="600">飘在天空的小镇里，和居民们一起修复失落乐园</text>
+</svg>

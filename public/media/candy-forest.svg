@@ -1,0 +1,28 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="48" fill="#B6F0D8"/>
+  <circle cx="176" cy="184" r="92" fill="#FFF1A8"/>
+  <rect y="636" width="1600" height="264" fill="#8E6B3C"/>
+  <ellipse cx="218" cy="646" rx="236" ry="94" fill="#6AB28D"/>
+  <ellipse cx="614" cy="602" rx="286" ry="126" fill="#76C89C"/>
+  <ellipse cx="1084" cy="612" rx="258" ry="116" fill="#56A97E"/>
+  <ellipse cx="1394" cy="654" rx="212" ry="90" fill="#4F996F"/>
+  <rect x="188" y="374" width="44" height="198" rx="22" fill="#D89D57"/>
+  <circle cx="210" cy="326" r="70" fill="#FF8FB1"/>
+  <circle cx="176" cy="296" r="42" fill="#FFD966"/>
+  <circle cx="244" cy="296" r="42" fill="#FFB347"/>
+  <rect x="470" y="330" width="54" height="238" rx="27" fill="#D89D57"/>
+  <circle cx="496" cy="286" r="88" fill="#8AE6C1"/>
+  <circle cx="440" cy="282" r="40" fill="#FFB0E8"/>
+  <circle cx="548" cy="292" r="38" fill="#FFDB7E"/>
+  <rect x="1184" y="360" width="54" height="210" rx="27" fill="#D89D57"/>
+  <circle cx="1212" cy="314" r="82" fill="#90E0EF"/>
+  <circle cx="1166" cy="296" r="36" fill="#F7A072"/>
+  <circle cx="1260" cy="286" r="34" fill="#FFE066"/>
+  <path d="M786 642C838 586 934 560 1016 564C1098 568 1174 612 1208 660" stroke="#FFF5D7" stroke-width="24" stroke-linecap="round"/>
+  <path d="M796 694C878 664 980 662 1084 700" stroke="#FFE396" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="938" cy="220" r="16" fill="#FF9FB2"/>
+  <circle cx="1000" cy="180" r="12" fill="#FFE066"/>
+  <circle cx="1066" cy="228" r="14" fill="#FFA94D"/>
+  <text x="96" y="812" fill="#FFFBEA" font-family="Quicksand, sans-serif" font-size="68" font-weight="700">糖果森林</text>
+  <text x="98" y="868" fill="#FFF0C2" font-family="Quicksand, sans-serif" font-size="34" font-weight="600">跳跃、收集、和噗噗一起穿过甜蜜迷宫</text>
+</svg>

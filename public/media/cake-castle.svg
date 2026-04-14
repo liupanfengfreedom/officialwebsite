@@ -1,0 +1,23 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="48" fill="#FFDCAF"/>
+  <rect y="700" width="1600" height="200" fill="#B36A34"/>
+  <rect x="548" y="320" width="504" height="330" rx="28" fill="#E8B27E"/>
+  <rect x="628" y="244" width="344" height="110" rx="28" fill="#F3C18C"/>
+  <polygon points="798,98 1044,320 552,320" fill="#D68A57"/>
+  <rect x="760" y="460" width="108" height="190" rx="26" fill="#B06A3C"/>
+  <rect x="600" y="398" width="64" height="84" rx="18" fill="#FFF0C7"/>
+  <rect x="932" y="398" width="64" height="84" rx="18" fill="#FFF0C7"/>
+  <rect x="452" y="452" width="124" height="198" rx="22" fill="#E0A368"/>
+  <rect x="1028" y="452" width="124" height="198" rx="22" fill="#E0A368"/>
+  <polygon points="514,328 612,452 416,452" fill="#F29F67"/>
+  <polygon points="1088,328 1186,452 990,452" fill="#F29F67"/>
+  <circle cx="628" cy="250" r="20" fill="#FFB347"/>
+  <circle cx="972" cy="250" r="20" fill="#FFB347"/>
+  <path d="M322 700C418 616 534 576 684 572C834 568 968 618 1068 700" stroke="#FFF3D6" stroke-width="22" stroke-linecap="round"/>
+  <path d="M292 744C418 676 586 660 778 674C970 688 1118 708 1278 772" stroke="#FFD29B" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="352" cy="176" r="22" fill="#FFE066"/>
+  <circle cx="1282" cy="186" r="16" fill="#FF9FB2"/>
+  <circle cx="1208" cy="132" r="12" fill="#FFF0C7"/>
+  <text x="96" y="812" fill="#FFF5DF" font-family="Quicksand, sans-serif" font-size="68" font-weight="700">蛋糕城堡</text>
+  <text x="98" y="868" fill="#FFE9BF" font-family="Quicksand, sans-serif" font-size="34" font-weight="600">甜蜜终章的高塔之战，藏着王国最后的秘密</text>
+</svg>

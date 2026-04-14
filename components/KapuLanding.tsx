@@ -1,85 +1,318 @@
 "use client"
 
-import { useState } from 'react'
+import Image from 'next/image'
+import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import {
   FaArrowRight,
   FaCandyCane,
   FaCopyright,
   FaEnvelope,
   FaGift,
+  FaImages,
   FaMobileAlt,
+  FaPause,
   FaPlayCircle,
   FaQq,
+  FaSearchPlus,
   FaSteam,
   FaTachometerAlt,
+  FaTimes,
   FaTwitter,
   FaUsers,
 } from 'react-icons/fa'
 import styles from './KapuLanding.module.css'
 
-const galleryItems = [
+type MediaItem = {
+  id: string
+  title: string
+  description: string
+  kind: 'image' | 'video'
+  imageSrc: string
+  videoSrc?: string
+}
+
+const mediaItems: MediaItem[] = [
   {
+    id: 'candy-forest',
     title: '🍬 糖果森林',
     description: '和噗噗一起收集星星糖',
-    art: (
-      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="240" fill="#B2E8D5" rx="20" />
-        <circle cx="60" cy="150" r="45" fill="#5CAD8A" />
-        <circle cx="150" cy="130" r="65" fill="#74C69D" />
-        <circle cx="280" cy="120" r="55" fill="#40916C" />
-        <rect x="30" y="180" width="340" height="30" fill="#9C7A3C" rx="10" />
-        <circle cx="80" cy="110" r="12" fill="#FFD966" />
-        <circle cx="220" cy="90" r="18" fill="#F4A261" />
-        <circle cx="340" cy="100" r="15" fill="#E9C46A" />
-        <text x="50" y="215" fill="#FEFAE0" fontWeight="bold" fontSize="20">
-          🍬 糖果森林
-        </text>
-      </svg>
-    ),
+    kind: 'image',
+    imageSrc: '/media/candy-forest.svg',
   },
   {
+    id: 'rainbow-falls',
     title: '🌈 彩虹瀑布',
     description: '梦幻滑道，收集彩虹晶石',
-    art: (
-      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="240" fill="#F9E6CF" rx="20" />
-        <path d="M50 180 L200 60 L350 180 Z" fill="#A7C5EB" opacity="0.8" />
-        <path d="M180 70 L210 130 L150 130 Z" fill="#70D6FF" />
-        <rect x="180" y="120" width="40" height="70" fill="#D4A373" />
-        <circle cx="200" cy="100" r="15" fill="#FCCF7C" />
-        <path d="M80 150 Q120 100 160 150" stroke="#F4A261" strokeWidth="8" fill="none" />
-        <path d="M240 150 Q280 100 320 150" stroke="#F4A261" strokeWidth="8" fill="none" />
-        <text x="30" y="215" fill="#8B5A2B" fontWeight="bold" fontSize="18">
-          🌈 彩虹瀑布
-        </text>
-      </svg>
-    ),
+    kind: 'image',
+    imageSrc: '/media/rainbow-falls.svg',
   },
   {
+    id: 'trailer-preview',
+    title: '🎬 首支预告',
+    description: '先看 30 秒热闹开场，点开即可放大播放完整版。',
+    kind: 'video',
+    imageSrc: '/media/trailer-poster.svg',
+    videoSrc: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+  },
+  {
+    id: 'cloud-village',
+    title: '☁️ 云朵镇',
+    description: '在天空小镇里修复机关，让漂浮岛重新发光。',
+    kind: 'image',
+    imageSrc: '/media/cloud-village.svg',
+  },
+  {
+    id: 'cake-castle',
     title: '🍰 蛋糕城堡',
     description: '终极对决！甜蜜的冒险终点',
-    art: (
-      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="240" fill="#FFDDAA" rx="20" />
-        <rect x="140" y="100" width="120" height="100" fill="#E7B183" rx="10" />
-        <polygon points="200,40 260,100 140,100" fill="#D9895C" />
-        <rect x="180" y="140" width="40" height="60" fill="#BF7B48" />
-        <circle cx="160" cy="120" r="12" fill="#FFB347" />
-        <circle cx="240" cy="120" r="12" fill="#FFB347" />
-        <rect x="70" y="180" width="260" height="20" fill="#B2672E" rx="8" />
-        <text x="140" y="215" fill="#FFF0D0" fontWeight="bold" fontSize="18">
-          🍰 蛋糕城堡
-        </text>
-      </svg>
-    ),
+    kind: 'image',
+    imageSrc: '/media/cake-castle.svg',
   },
 ]
 
-const posterDataUri =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23FCD5A5'/%3E%3Ctext x='50%25' y='50%25' font-size='28' fill='%23c96a2d' text-anchor='middle' dominant-baseline='middle'%3E🎮 精彩视频加载%3C/text%3E%3C/svg%3E"
+const loopedMediaItems = [...mediaItems, ...mediaItems, ...mediaItems]
+const middleLoopStart = mediaItems.length
 
 export default function KapuLanding() {
   const [copied, setCopied] = useState(false)
+  const [activeMedia, setActiveMedia] = useState<MediaItem | null>(null)
+  const [centeredIndex, setCenteredIndex] = useState(middleLoopStart)
+  const viewportRef = useRef<HTMLDivElement>(null)
+  const mediaCardRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const resumeTimeoutRef = useRef<number | null>(null)
+  const isDraggingRef = useRef(false)
+  const suppressClickRef = useRef(false)
+  const pauseAutoRef = useRef(false)
+  const dragStateRef = useRef({ startX: 0, startScrollLeft: 0, moved: false })
+  const centeredIndexRef = useRef(middleLoopStart)
+
+  function normalizeLogicalIndex(index: number) {
+    return ((index % mediaItems.length) + mediaItems.length) % mediaItems.length
+  }
+
+  function clearResumeTimer() {
+    if (resumeTimeoutRef.current) {
+      window.clearTimeout(resumeTimeoutRef.current)
+      resumeTimeoutRef.current = null
+    }
+  }
+
+  function scheduleAutoResume(delay = 900) {
+    clearResumeTimer()
+    resumeTimeoutRef.current = window.setTimeout(() => {
+      pauseAutoRef.current = false
+    }, delay)
+  }
+
+  function updateCenteredIndex(index: number) {
+    centeredIndexRef.current = index
+    setCenteredIndex(index)
+  }
+
+  function scrollCardIntoView(targetIndex: number, behavior: ScrollBehavior = 'smooth') {
+    const viewport = viewportRef.current
+    const card = mediaCardRefs.current[targetIndex]
+
+    if (!viewport || !card) {
+      return
+    }
+
+    const targetLeft = card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2
+    viewport.scrollTo({ left: targetLeft, behavior })
+  }
+
+  function centerCard(targetIndex: number, behavior: ScrollBehavior = 'smooth') {
+    scrollCardIntoView(targetIndex, behavior)
+    updateCenteredIndex(targetIndex)
+  }
+
+  function recenterIntoMiddleLoop(index: number) {
+    const normalizedIndex = normalizeLogicalIndex(index)
+    const recenteredIndex = middleLoopStart + normalizedIndex
+
+    centeredIndexRef.current = recenteredIndex
+    setCenteredIndex(recenteredIndex)
+
+    window.requestAnimationFrame(() => {
+      centerCard(recenteredIndex, 'auto')
+    })
+  }
+
+  function findNearestCardIndex() {
+    const viewport = viewportRef.current
+
+    if (!viewport) {
+      return centeredIndexRef.current
+    }
+
+    const viewportCenter = viewport.scrollLeft + viewport.clientWidth / 2
+    let nearestIndex = centeredIndexRef.current
+    let shortestDistance = Number.POSITIVE_INFINITY
+
+    mediaCardRefs.current.forEach((card, index) => {
+      if (!card) {
+        return
+      }
+
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2
+      const distance = Math.abs(cardCenter - viewportCenter)
+
+      if (distance < shortestDistance) {
+        shortestDistance = distance
+        nearestIndex = index
+      }
+    })
+
+    return nearestIndex
+  }
+
+  function snapToNearestCard(behavior: ScrollBehavior = 'smooth') {
+    const nearestIndex = findNearestCardIndex()
+    centerCard(nearestIndex, behavior)
+
+    const isOutsideMiddleLoop =
+      nearestIndex < middleLoopStart || nearestIndex >= middleLoopStart + mediaItems.length
+
+    if (isOutsideMiddleLoop) {
+      window.setTimeout(() => {
+        recenterIntoMiddleLoop(nearestIndex)
+      }, behavior === 'smooth' ? 380 : 0)
+    }
+  }
+
+  function stepCarousel(direction: 1 | -1) {
+    const currentIndex = centeredIndexRef.current
+    const targetIndex = currentIndex + direction
+
+    centerCard(targetIndex, 'smooth')
+
+    const isOutsideMiddleLoop =
+      targetIndex < middleLoopStart || targetIndex >= middleLoopStart + mediaItems.length
+
+    if (isOutsideMiddleLoop) {
+      window.setTimeout(() => {
+        recenterIntoMiddleLoop(targetIndex)
+      }, 380)
+    }
+  }
+
+  const handleAutoStep = useEffectEvent(() => {
+    if (!pauseAutoRef.current && !isDraggingRef.current && !activeMedia) {
+      stepCarousel(-1)
+    }
+  })
+
+  useEffect(() => {
+    const viewport = viewportRef.current
+
+    if (!viewport) {
+      return
+    }
+
+    scrollCardIntoView(middleLoopStart, 'auto')
+
+    const handleResize = () => {
+      scrollCardIntoView(centeredIndexRef.current, 'auto')
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      clearResumeTimer()
+    }
+  }, [])
+
+  useEffect(() => {
+    const autoStep = window.setInterval(() => {
+      handleAutoStep()
+    }, 2600)
+
+    return () => {
+      window.clearInterval(autoStep)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!activeMedia) {
+      return
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveMedia(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [activeMedia])
+
+  function handlePointerDown(event: React.PointerEvent<HTMLDivElement>) {
+    const viewport = viewportRef.current
+
+    if (!viewport) {
+      return
+    }
+
+    clearResumeTimer()
+    pauseAutoRef.current = true
+    isDraggingRef.current = true
+    dragStateRef.current = {
+      startX: event.clientX,
+      startScrollLeft: viewport.scrollLeft,
+      moved: false,
+    }
+
+    viewport.setPointerCapture(event.pointerId)
+  }
+
+  function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
+    const viewport = viewportRef.current
+
+    if (!viewport || !isDraggingRef.current) {
+      return
+    }
+
+    const deltaX = event.clientX - dragStateRef.current.startX
+
+    if (Math.abs(deltaX) > 6) {
+      dragStateRef.current.moved = true
+      suppressClickRef.current = true
+    }
+
+    viewport.scrollLeft = dragStateRef.current.startScrollLeft - deltaX
+    updateCenteredIndex(findNearestCardIndex())
+  }
+
+  function finishDragging() {
+    if (!isDraggingRef.current) {
+      return
+    }
+
+    isDraggingRef.current = false
+    snapToNearestCard('smooth')
+    scheduleAutoResume(1200)
+    window.setTimeout(() => {
+      suppressClickRef.current = false
+    }, 0)
+  }
+
+  function handleMediaClick(item: MediaItem) {
+    if (suppressClickRef.current) {
+      return
+    }
+
+    pauseAutoRef.current = true
+    setActiveMedia(item)
+  }
 
   async function copyGroupNumber() {
     const groupNumber = '887766552'
@@ -184,15 +417,76 @@ export default function KapuLanding() {
         </section>
 
         <section id="gallery">
-          <h2 className={styles.sectionTitle}>🍭 梦幻世界剪影 ✨</h2>
-          <div className={styles.galleryGrid}>
-            {galleryItems.map((item) => (
-              <article key={item.title} className={styles.galleryCard}>
-                <div className={styles.cardImage}>{item.art}</div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            ))}
+          <h2 className={styles.sectionTitle}>🍭 梦幻媒体廊 ✨</h2>
+          <div className={styles.galleryHint}>
+            <span>
+              <FaImages />
+              可自由增删媒体卡，支持图片和视频预览
+            </span>
+            <span>
+              <FaPause />
+              自动向右滚动，鼠标拖拽时会暂停并优先响应手势
+            </span>
+            <span>
+              <FaSearchPlus />
+              点击卡片即可放大查看，视频会在弹窗中播放
+            </span>
+          </div>
+          <div
+            ref={viewportRef}
+            className={styles.mediaViewport}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={finishDragging}
+            onPointerCancel={finishDragging}
+            onPointerLeave={() => {
+              if (!isDraggingRef.current) {
+                scheduleAutoResume(200)
+              }
+            }}
+            onMouseEnter={() => {
+              pauseAutoRef.current = true
+              clearResumeTimer()
+            }}
+            onMouseLeave={() => {
+              if (!isDraggingRef.current && !activeMedia) {
+                scheduleAutoResume(200)
+              }
+            }}
+          >
+            <div className={styles.mediaTrack}>
+              {loopedMediaItems.map((item, index) => (
+                <button
+                  key={`${item.id}-${index}`}
+                  type="button"
+                  ref={(node) => {
+                    mediaCardRefs.current[index] = node
+                  }}
+                  className={`${styles.mediaCard} ${index === centeredIndex ? styles.mediaCardActive : ''}`}
+                  onClick={() => handleMediaClick(item)}
+                >
+                  <div className={styles.mediaFrame}>
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.title}
+                      width={1600}
+                      height={900}
+                      className={styles.mediaImage}
+                    />
+                    <div className={styles.mediaOverlay}>
+                      <span className={styles.mediaBadge}>{item.kind === 'video' ? '视频预览' : '场景截图'}</span>
+                      <span className={styles.mediaZoom}>
+                        {item.kind === 'video' ? <FaPlayCircle /> : <FaSearchPlus />}
+                      </span>
+                    </div>
+                  </div>
+                  <div className={styles.mediaMeta}>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -204,7 +498,7 @@ export default function KapuLanding() {
                 className={styles.video}
                 controls
                 controlsList="nodownload"
-                poster={posterDataUri}
+                poster="/media/trailer-poster.svg"
                 preload="metadata"
               >
                 <source
@@ -304,6 +598,44 @@ export default function KapuLanding() {
           </p>
         </footer>
       </div>
+
+      {activeMedia ? (
+        <div className={styles.modalBackdrop} role="dialog" aria-modal="true" aria-label={activeMedia.title}>
+          <button type="button" className={styles.modalClose} onClick={() => setActiveMedia(null)} aria-label="关闭预览">
+            <FaTimes />
+          </button>
+          <button type="button" className={styles.modalScrim} onClick={() => setActiveMedia(null)} aria-label="关闭背景层" />
+          <div className={styles.modalCard}>
+            <div className={styles.modalMedia}>
+              {activeMedia.kind === 'video' && activeMedia.videoSrc ? (
+                <video
+                  className={styles.modalVideo}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  poster={activeMedia.imageSrc}
+                >
+                  <source src={activeMedia.videoSrc} type="video/mp4" />
+                  您的浏览器不支持 video 标签。
+                </video>
+              ) : (
+                <Image
+                  src={activeMedia.imageSrc}
+                  alt={activeMedia.title}
+                  width={1600}
+                  height={900}
+                  className={styles.modalImage}
+                />
+              )}
+            </div>
+            <div className={styles.modalInfo}>
+              <h3>{activeMedia.title}</h3>
+              <p>{activeMedia.description}</p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   )
 }
