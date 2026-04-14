@@ -144,8 +144,9 @@
 }
 
 .heroCharacter {
-  width: min(100%, 280px);
+  width: min(100%, 420px);
   height: auto;
+  object-fit: contain;
   filter: drop-shadow(12px 12px 0 rgba(0, 0, 0, 0.15));
 }
 

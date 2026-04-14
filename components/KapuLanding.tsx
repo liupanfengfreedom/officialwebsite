@@ -72,6 +72,10 @@ const mediaItems: MediaItem[] = [
 
 const loopedMediaItems = [...mediaItems, ...mediaItems, ...mediaItems]
 const middleLoopStart = mediaItems.length
+const heroArtwork = {
+  src: '/media/hero-character-placeholder.svg',
+  alt: '主视觉角色图',
+}
 
 export default function KapuLanding() {
   const [copied, setCopied] = useState(false)
@@ -387,31 +391,14 @@ export default function KapuLanding() {
             </div>
 
             <div className={styles.heroIllustration}>
-              <svg
-                viewBox="0 0 300 300"
-                width="280"
-                height="280"
-                xmlns="http://www.w3.org/2000/svg"
+              <Image
+                src={heroArtwork.src}
+                alt={heroArtwork.alt}
+                width={900}
+                height={900}
+                priority
                 className={styles.heroCharacter}
-              >
-                <circle cx="150" cy="150" r="120" fill="#FFD966" stroke="#FFB347" strokeWidth="6" />
-                <circle cx="110" cy="120" r="18" fill="white" />
-                <circle cx="190" cy="120" r="18" fill="white" />
-                <circle cx="115" cy="122" r="8" fill="#2F2E2E" />
-                <circle cx="195" cy="122" r="8" fill="#2F2E2E" />
-                <path
-                  d="M120 190 Q150 220 180 190"
-                  stroke="#C96A2D"
-                  strokeWidth="10"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <rect x="135" y="60" width="30" height="40" rx="15" fill="#FF8C42" />
-                <circle cx="150" cy="85" r="12" fill="#FFB347" />
-                <text x="150" y="270" textAnchor="middle" fill="#B4622A" fontWeight="bold" fontSize="22">
-                  噗噗兽
-                </text>
-              </svg>
+              />
             </div>
           </div>
         </section>

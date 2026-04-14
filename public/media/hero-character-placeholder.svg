@@ -1,0 +1,17 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="450" cy="810" rx="170" ry="42" fill="#000000" fill-opacity="0.12"/>
+  <circle cx="450" cy="388" r="228" fill="#FFD966" stroke="#FFB347" stroke-width="18"/>
+  <circle cx="342" cy="336" r="38" fill="white"/>
+  <circle cx="558" cy="336" r="38" fill="white"/>
+  <circle cx="350" cy="342" r="16" fill="#2F2E2E"/>
+  <circle cx="566" cy="342" r="16" fill="#2F2E2E"/>
+  <path d="M360 464C414 528 486 528 540 464" stroke="#C96A2D" stroke-width="24" stroke-linecap="round"/>
+  <rect x="416" y="214" width="68" height="92" rx="34" fill="#FF8C42"/>
+  <circle cx="450" cy="272" r="26" fill="#FFB347"/>
+  <path d="M322 588C286 650 264 700 256 764" stroke="#D9904A" stroke-width="28" stroke-linecap="round"/>
+  <path d="M578 588C614 650 636 700 644 764" stroke="#D9904A" stroke-width="28" stroke-linecap="round"/>
+  <path d="M248 770C314 734 382 718 450 718C518 718 586 734 652 770" stroke="#FFC55C" stroke-width="32" stroke-linecap="round"/>
+  <path d="M292 212C320 158 368 124 430 110" stroke="#FFB347" stroke-width="22" stroke-linecap="round"/>
+  <path d="M608 212C580 158 532 124 470 110" stroke="#FFB347" stroke-width="22" stroke-linecap="round"/>
+  <text x="450" y="874" text-anchor="middle" fill="#B4622A" font-family="Quicksand, sans-serif" font-size="54" font-weight="700">把这里换成你的透明角色图</text>
+</svg>
