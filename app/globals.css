@@ -1,26 +1,33 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --cartoon-primary: #FF6B6B;
+  --cartoon-secondary: #4ECDC4;
+  --cartoon-accent: #FFE66D;
+  --steam-dark: #171a21;
+  --steam-green: #5c7e10;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gradient-to-b from-sky-100 to-orange-50 text-gray-900 font-sans;
+  /* 自定义卡通字体请在 layout.tsx 中引入 */
+}
+
+.cartoon-card {
+  @apply bg-white border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] 
+         transition-all duration-200 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+}
+
+.cartoon-btn {
+  @apply px-8 py-3 bg-gradient-to-r from-orange-400 to-red-500 text-white font-bold text-lg 
+         border-4 border-black rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+         hover:scale-105 active:scale-95 active:shadow-none active:translate-y-1 transition-all;
+}
+
+.cartoon-btn-steam {
+  @apply px-8 py-3 bg-steam-green text-white font-bold text-lg 
+         border-4 border-black rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+         hover:scale-105 active:scale-95 active:shadow-none active:translate-y-1 transition-all;
 }
