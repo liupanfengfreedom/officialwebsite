@@ -78,8 +78,8 @@ const heroArtwork = {
   alt: '主视觉角色图',
 }
 const pageBackground = {
-  imageSrc: '/media/page-background.svg',
-  overlay: 'linear-gradient(145deg, rgba(255, 249, 232, 0.72) 0%, rgba(255, 230, 201, 0.58) 100%)',
+  imageSrc: '/media/page-background.png',
+  overlay: 'linear-gradient(145deg, rgba(255, 249, 232, 0.0) 0%, rgba(255, 230, 201, 0.0) 100%)',
   fallbackGradient: 'linear-gradient(145deg, #fff9e8 0%, #ffe6c9 100%)',
   position: 'center top',
   size: 'cover',
