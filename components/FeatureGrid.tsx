@@ -12,7 +12,7 @@ const features = [
 export default function FeatureGrid() {
   return (
     <section className="py-20 px-4 max-w-6xl mx-auto">
-      <h2 className="font-['Bangers'] text-4xl md:text-5xl text-center mb-12">游戏特色</h2>
+      <h2 className="font-[family-name:var(--font-bangers)] text-4xl md:text-5xl text-center mb-12">游戏特色</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f, i) => (
           <motion.div

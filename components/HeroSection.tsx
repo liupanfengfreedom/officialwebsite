@@ -1,14 +1,13 @@
 "use client"
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { motion, type Variants } from "framer-motion"
 import Link from "next/link"
 
 export default function HeroSection() {
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
   }
-  const item = {
+  const item: Variants = {
     hidden: { y: 30, opacity: 0, scale: 0.9 },
     show: { y: 0, opacity: 1, scale: 1, transition: { type: "spring", stiffness: 120 } }
   }
@@ -31,11 +30,11 @@ export default function HeroSection() {
 
       <motion.div variants={container} initial="hidden" animate="show" className="relative z-10 text-center max-w-4xl">
         {/* 游戏 Logo / 标题 */}
-        <motion.h1 variants={item} className="font-['Bangers'] text-6xl md:text-8xl text-black drop-shadow-[4px_4px_0px_#fff] mb-4 tracking-wider">
+        <motion.h1 variants={item} className="font-[family-name:var(--font-bangers)] text-6xl md:text-8xl text-black drop-shadow-[4px_4px_0px_#fff] mb-4 tracking-wider">
           你的游戏标题
         </motion.h1>
         
-        <motion.p variants={item} className="text-xl md:text-2xl text-gray-800 font-['Fredoka'] mb-8 max-w-2xl mx-auto">
+        <motion.p variants={item} className="text-xl md:text-2xl text-gray-800 font-[family-name:var(--font-fredoka)] mb-8 max-w-2xl mx-auto">
           一段充满欢笑、机关与未知冒险的卡通世界，准备好了吗？
         </motion.p>
 
