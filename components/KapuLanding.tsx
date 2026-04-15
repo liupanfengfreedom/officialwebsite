@@ -79,7 +79,7 @@ const heroArtwork = {
 }
 const pageBackground = {
   imageSrc: '/media/page-background.png',
-  overlay: 'linear-gradient(145deg, rgba(255, 249, 232, 0.0) 0%, rgba(255, 230, 201, 0.0) 100%)',
+  overlay: 'linear-gradient(145deg, rgba(255, 249, 232, 0.0) 0%, rgba(255, 230, 201, 0.0) 90%)',
   fallbackGradient: 'linear-gradient(145deg, #fff9e8 0%, #ffe6c9 100%)',
   position: 'center top',
   size: 'cover',
