@@ -76,7 +76,7 @@ const middleLoopStart = mediaItems.length
 const heroArtwork = {
   src: '/media/hero-character-placeholder.png',
   alt: '主视觉角色图',
-}s
+}
 const pageBackground = {
   imageSrc: '/media/page-background.png',
   overlay: 'linear-gradient(145deg, rgba(255, 249, 232, 0.0) 0%, rgba(255, 230, 201, 0.0) 90%)',
