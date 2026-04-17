@@ -147,8 +147,7 @@
   justify-content: center;
   padding: 30px;
   text-align: center;
-  border-radius: 60% 40% 50% 50% / 45% 40% 60% 55%;
-  background: radial-gradient(circle, #ffe0b5, #ffd1a0);
+
   animation: float 4s ease-in-out infinite;
 }
 
